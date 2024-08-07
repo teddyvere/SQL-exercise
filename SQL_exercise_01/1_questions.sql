@@ -20,7 +20,11 @@ SELECT Name, Price FROM Products WHERE Price >= 180 ORDER BY Price DESC, Name AS
 -- 1.10 Select all the data from the products, including all the data for each product's manufacturer.
 select a.*, b.name from products a join Manufacturers b on(a.manufacturer = b.code);
 -- 1.11 Select the product name, price, and manufacturer name of all the products.
+select a.name, a.price, b.name from products a join manufacturers b  on (a.manufacturer = b.code)
 -- 1.12 Select the average price of each manufacturer's products, showing only the manufacturer's code.
+SELECT AVG(Price), Manufacturer
+    FROM Products
+GROUP BY Manufacturer;
 -- 1.13 Select the average price of each manufacturer's products, showing the manufacturer's name.
 -- 1.14 Select the names of manufacturer whose products have an average price larger than or equal to $150.
 -- 1.15 Select the name and price of the cheapest product.
