@@ -6,12 +6,19 @@ SELECT Price FROM Products;
 -- 1.3 Select the name of the products with a price less than or equal to $200.
 SELECT NAME FROM PRODUCTS WHERE PRICE <= 200
 -- 1.4 Select all the products with a price between $60 and $120.
+SELECT * FROM Products WHERE Price BETWEEN 60 AND 120
 -- 1.5 Select the name and price in cents (i.e., the price must be multiplied by 100).
+SELECT Name, Price * 100 FROM products
 -- 1.6 Compute the average price of all the products.
+SELECT AVG(PRICE) FROM Products
 -- 1.7 Compute the average price of all products with manufacturer code equal to 2.
+SELECT AVG(Price) FROM Products WHERE Code == 2
 -- 1.8 Compute the number of products with a price larger than or equal to $180.
+SELECT COUNT(*) FROM Products WHERE Price == 180
 -- 1.9 Select the name and price of all products with a price larger than or equal to $180, and sort first by price (in descending order), and then by name (in ascending order).
+SELECT Name, Price FROM Products WHERE Price >= 180 ORDER BY Price DESC, Name ASC
 -- 1.10 Select all the data from the products, including all the data for each product's manufacturer.
+select a.*, b.name from products a join Manufacturers b on(a.manufacturer = b.code);
 -- 1.11 Select the product name, price, and manufacturer name of all the products.
 -- 1.12 Select the average price of each manufacturer's products, showing only the manufacturer's code.
 -- 1.13 Select the average price of each manufacturer's products, showing the manufacturer's name.
