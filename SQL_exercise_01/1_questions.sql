@@ -26,10 +26,21 @@ SELECT AVG(Price), Manufacturer
     FROM Products
 GROUP BY Manufacturer;
 -- 1.13 Select the average price of each manufacturer's products, showing the manufacturer's name.
+SELECT AVG(a.price), b.name from products a join manufacturers b on (a.manufacturer = b.code) group by b.name;
+
 -- 1.14 Select the names of manufacturer whose products have an average price larger than or equal to $150.
+SELECT AVG(a.price), b.name from products a join manufacturers b on (a.manufacturer = b.code) group by b.name having avg(a.price) > 150;
+
 -- 1.15 Select the name and price of the cheapest product.
+select name, price from products group by price order by asc limit 1
 -- 1.16 Select the name of each manufacturer along with the name and price of its most expensive product.
+select manufacturer, name, price group by manufacturer order by manufacturer desc limit 1
 -- 1.17 Add a new product: Loudspeakers, $70, manufacturer 2.
+insert into products values (11, 'Loudspeakers', 70, 2)
 -- 1.18 Update the name of product 8 to "Laser Printer".
+update products set name = 'Laser Printer' where code = 8
 -- 1.19 Apply a 10% discount to all products.
+update products set price = price * 0.9 
 -- 1.20 Apply a 10% discount to all products with a price larger than or equal to $120.
+update products set price = price * 0.9 where price >= 120
+
