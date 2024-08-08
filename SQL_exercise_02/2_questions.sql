@@ -1,8 +1,13 @@
 -- LINK : https://en.wikibooks.org/wiki/SQL_Exercises/Employee_management
 -- 2.1 Select the last name of all employees.
+select lastname from employees;
 -- 2.2 Select the last name of all employees, without duplicates.
+select distinct lastname from employees where;
 -- 2.3 Select all the data of employees whose last name is "Smith".
+select * from employees where lastname = 'Smith'
 -- 2.4 Select all the data of employees whose last name is "Smith" or "Doe".
+select * from employees where lastname = 'Smith' or lastname = 'Doe'
+
 -- 2.5 Select all the data of employees that work in department 14.
 -- 2.6 Select all the data of employees that work in department 37 or department 77.
 -- 2.7 Select all the data of employees whose last name begins with an "S".
