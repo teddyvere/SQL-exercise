@@ -27,7 +27,9 @@ select a.Name, a.LastName from Employees a join Departments b on (a.Department =
 -- 2.13 Select the departments with a budget larger than the average budget of all the departments.
 select Name from departments where budget > (select avg(budget) from departments);
 -- 2.14 Select the names of departments with more than two employees.
+select a.Name from departments a join employees b on (a.Code = b.Department) group by a.name having count(*) > 2
 -- 2.15 Very Important - Select the name and last name of employees working for departments with second lowest budget.
+select a.Name, a.LastName from Employees a where a.Department = (select b.code from (select * from departments c order by c.budget limit 2) b order by budget desc limit 1 )
 -- 2.16  Add a new department called "Quality Assurance", with a budget of $40,000 and departmental code 11. 
 -- And Add an employee called "Mary Moore" in that department, with SSN 847-21-9811.
 -- 2.17 Reduce the budget of all departments by 10%.
